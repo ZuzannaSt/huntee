@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'geocoder'
 gem 'thin'
 gem 'dotenv-rails', :groups => [:development, :test]
 
