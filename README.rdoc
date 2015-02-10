@@ -1,28 +1,42 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple solution to an assignment.
 
-Things you may want to cover:
+== Programming Assignment:
 
-* Ruby version
+You are writing a web endpoint for a treasure hunt game. It allows participants to send requests to an endpoint, containing their current position(latitude and longitude in decimal representation) and email. Response contains a distance to the treasure expressed in meters. When players are in a 5 meter radius from the treasure an e-mail message with congratulations and exact position of the treasure is sent on the provided e-mail address.
 
-* System dependencies
+Treasure location: 50.051227 N, 19.945704 E
 
-* Configuration
+Request format:
 
-* Database creation
+  /your_endpoint.json?current_location[]=:latitude&current_location[]=:longitude&email=:email
 
-* Database initialization
+Example request:
 
-* How to run the test suite
+  POST /your_endpoint/current_location[]=0&current_location[]=0&email=test@example.com
 
-* Services (job queues, cache servers, search engines, etc.)
+Example response:
 
-* Deployment instructions
+    Successful response
 
-* ...
+           { status: ‘ok’, distance: 10  }
+
+    Error response
+
+           { status: ‘error’, distance: -1, error: ‘error description’ }
+
+Email Content: “Hey, you’ve found a treasure, congratulations!”
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Configuration
+
+* Emails: Setup your ENV['GMAIL_USERNAME'] and ENV['GMAIL_PASSWORD'] variables to send emails.
+
+* DB: Using MySQL, just run rake db:migrate.
+
+* POST: You can send request through
+
+    curl -X POST -dion[]=50.051221&current_location[]=19.945610&email=zuzanna.st@gmail.com" http://localhost:3000/your_endpoint
+    
+* Index: As for now it's only rendering JSON.
