@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  #match '/your_endpoint' => 'your_endpoint#create', via: :get
-  #match '/your_endpoint' => 'your_endpoint#create', via: :post
-  post '/your_endpoint' => 'your_endpoint#create'
+  post '/hunt' => 'hunt#create'
 
-  root 'your_endpoint#index'
+  root 'hunt#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,10 +1,10 @@
-class YourEndpointController < ApplicationController
+class HuntsController < ApplicationController
 	protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
-	before_action :set_endpoint, except: [:index]
+	before_action :set_hunt, except: [:index]
 
 	def index
-		@endpoints = YourEndpoint.all
-		@hash = Gmaps4rails.build_markers(@endpoints) do |hunt, marker|
+		@hunts = Hunt.all
+		@hash = Gmaps4rails.build_markers(@hunts) do |hunt, marker|
   			marker.lat hunt.latitude
   			marker.lng hunt.longitude
   			marker.infowindow hunt.email
@@ -12,8 +12,8 @@ class YourEndpointController < ApplicationController
 	end
 
 	def create
-		@your_endpoint = YourEndpoint.new(email: @email, latitude: @latitude, longitude: @longitude)
-		if @your_endpoint.save
+		@hunt = Hunt.new(email: @email, latitude: @latitude, longitude: @longitude)
+		if @hunt.save
 			treasure_hunting
 		else
 			render json: { status: 'error', error: 'Wrong data.'}
@@ -43,7 +43,7 @@ class YourEndpointController < ApplicationController
 		end
 	end
 
-	def set_endpoint
+	def set_hunt
 		@email = params[:email]
 		@latitude = params[:current_location][0].to_d
 		@longitude = params[:current_location][1].to_d

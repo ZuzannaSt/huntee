@@ -10,11 +10,11 @@ Treasure location: 50.051227 N, 19.945704 E
 
 Request format:
 
-  /your_endpoint.json?current_location[]=:latitude&current_location[]=:longitude&email=:email
+  /hunt.json?current_location[]=:latitude&current_location[]=:longitude&email=:email
 
 Example request:
 
-  POST /your_endpoint/current_location[]=0&current_location[]=0&email=test@example.com
+  POST /hunt/current_location[]=0&current_location[]=0&email=test@example.com
 
 Example response:
 
@@ -37,6 +37,6 @@ Email Content: “Hey, you’ve found a treasure, congratulations!”
 
 * POST: You can send request through
 
-    curl -X POST -dion[]=50.051221&current_location[]=19.945610&email=zuzanna.st@gmail.com" http://localhost:3000/your_endpoint
+    curl -X POST -dion[]=50.051221&current_location[]=19.945610&email=zuzanna.st@gmail.com" http://localhost:3000/hunt
     
 * Index: As for now it's only rendering JSON.

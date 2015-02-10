@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class YourEndpointTest < ActiveSupport::TestCase
+class HuntControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
