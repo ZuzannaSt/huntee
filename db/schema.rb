@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207194829) do
+ActiveRecord::Schema.define(version: 20150210185335) do
 
-  create_table "your_endpoints", force: :cascade do |t|
+  create_table "hunts", force: :cascade do |t|
     t.string   "email"
     t.decimal  "latitude"
     t.decimal  "longitude"
