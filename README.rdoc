@@ -1,12 +1,10 @@
-== README
+== Huntee
 
-This is a simple solution to an assignment.
+This is a web endpoint for a treasure hunt game. It allows participants to send requests containing their current position (latitude and longitude in decimal representation) and email. 
+Response contains a distance to the treasure expressed in meters. When players are in a 5 meter radius from the treasure an e-mail message with congratulations and exact position of the treasure is sent on the provided e-mail address:
+  “Hey, you’ve found a treasure, congratulations!”
 
-== Programming Assignment:
-
-You are writing a web endpoint for a treasure hunt game. It allows participants to send requests to an endpoint, containing their current position(latitude and longitude in decimal representation) and email. Response contains a distance to the treasure expressed in meters. When players are in a 5 meter radius from the treasure an e-mail message with congratulations and exact position of the treasure is sent on the provided e-mail address.
-
-Treasure location: 50.051227 N, 19.945704 E
+Treasure location: 50.063617 N, 19.931784 E
 
 Request format:
 
@@ -16,27 +14,18 @@ Example request:
 
   POST /hunt/current_location[]=0&current_location[]=0&email=test@example.com
 
-Example response:
 
-    Successful response
+== Demo
 
-           { status: ‘ok’, distance: 10  }
-
-    Error response
-
-           { status: ‘error’, distance: -1, error: ‘error description’ }
-
-Email Content: “Hey, you’ve found a treasure, congratulations!”
+  http://huntee.herokuapp.com
 
 
 == Configuration
 
-* Emails: Setup your ENV['GMAIL_USERNAME'] and ENV['GMAIL_PASSWORD'] variables to send emails.
+* Emails: Setup your ENV['GMAIL_USERNAME'] and ENV['GMAIL_PASSWORD'] variables to send emails in development.
 
-* DB: Using MySQL, just run rake db:migrate.
+* DB: Just run rake db:migrate.
 
 * POST: You can send request through
 
-    curl -X POST -dion[]=50.051221&current_location[]=19.945610&email=zuzanna.st@gmail.com" http://localhost:3000/hunt
-    
-* Index: As for now it's only rendering JSON.
+    curl -X POST -d current_location[]=50.051221&current_location[]=19.945610&email=zuzanna.st@gmail.com" http://localhost:3000/hunts
