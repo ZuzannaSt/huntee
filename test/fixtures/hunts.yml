@@ -1,0 +1,11 @@
+winner:
+  email: anna@won.com
+  latitude: 50.0636140
+  longitude: 19.9317810
+
+
+looser:
+  email: hank@lost.com
+  latitude: 0
+  longitude: 0
+

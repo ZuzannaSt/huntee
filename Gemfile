@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'capybara'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'bootstrap-sass'

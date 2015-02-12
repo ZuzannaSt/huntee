@@ -16,7 +16,7 @@ class HuntsController < ApplicationController
 		if @hunt.save
 			treasure_hunting
 		else
-			render json: { status: 'error', error: 'Wrong data.'}
+			render json: { status: 'error', error: 'Wrong data.'}, status: 500
 		end
 	end
 

@@ -1,5 +1,5 @@
 class InfoMailer < ActionMailer::Base
-	default from: "info@treasure-hunter.com"
+	default from: "info@huntee.com"
 
 	def congratulations(email, treasure_location)
 		@email = email
